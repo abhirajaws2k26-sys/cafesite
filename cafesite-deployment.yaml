@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cafesite
+  labels:
+    app: cafesite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cafesite
+  template:
+    metadata:
+      labels:
+        app: cafesite
+    spec:
+      containers:
+        - name: cafesite
+          image: fujikomalan/cafesite:v1
+          ports:
+            - containerPort: 80
